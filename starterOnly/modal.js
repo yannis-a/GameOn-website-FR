@@ -15,7 +15,6 @@ const regexNumber = /^[0-9]*$/;
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelector(".close");
-const formData = document.querySelectorAll(".formData");
 
 const form = document.getElementsByName('reserve')[0];
 
@@ -33,7 +32,7 @@ function closeModal() {
     modalbg.style.display = "none";
 }
 
-// permet de ne pas soumettre les donnÈes du formulaire. A la place on fermera la fenetre une fois les saisies validÈs
+// permet de ne pas soumettre les donn√©es du formulaire. A la place on fermera la fenetre une fois les saisies validÔøΩs
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 });
@@ -60,12 +59,12 @@ function isEmpty(value) {
 
 
 function validate() {
-  
-    let firstValid = isEmpty(form["first"].value) && form["first"].value.length >= 2 ;
-    firstValid ? hideErrorMessage('error-first', form["first"]) : displayErrorMessage('error-first', "Veuillez entrer 2 caractËres ou plus pour le champ du prÈnom.");
 
-    let lastValid = isEmpty(form["last"].value) && form["last"].value.length >= 2 ;
-    lastValid ? hideErrorMessage('error-last', form["last"]) : displayErrorMessage('error-last', "Veuillez entrer 2 caractËres ou plus pour le champ du nom.");
+    let firstValid = isEmpty(form["first"].value) && form["first"].value.length >= 2;
+    firstValid ? hideErrorMessage('error-first', form["first"]) : displayErrorMessage('error-first', "Veuillez entrer 2 caract√®res ou plus pour le champ du pr√©nom.");
+
+    let lastValid = isEmpty(form["last"].value) && form["last"].value.length >= 2;
+    lastValid ? hideErrorMessage('error-last', form["last"]) : displayErrorMessage('error-last', "Veuillez entrer 2 caract√®res ou plus pour le champ du nom.");
 
     let emailValid = isEmpty(form["email"].value) && regexEmail.test(form["email"].value);
     emailValid ? hideErrorMessage('error-email', form["email"]) : displayErrorMessage('error-email', "Veuillez entrer une addresse mail valide.");
@@ -74,13 +73,13 @@ function validate() {
     birthdateValid ? hideErrorMessage('error-birthdate', form["birthdate"]) : displayErrorMessage('error-birthdate', "Veuillez entrer une date de naissance valide.");
 
     let quantityValid = isEmpty(form["quantity"].value) && regexNumber.test(form["quantity"].value);
-    quantityValid ? hideErrorMessage('error-quantity', form["quantity"]) : displayErrorMessage('error-quantity', "Veuillez entrer une valeur numÈrique.");
+    quantityValid ? hideErrorMessage('error-quantity', form["quantity"]) : displayErrorMessage('error-quantity', "Veuillez entrer une valeur num√©rique.");
 
     let locationValid = isEmpty(form["location"].value);
-    locationValid ? hideErrorMessage('error-location') : displayErrorMessage('error-location', "Veuillez sÈlectionner une ville.");
+    locationValid ? hideErrorMessage('error-location') : displayErrorMessage('error-location', "Veuillez s√©lectionner une ville.");
 
     let termsValid = isEmpty(form["checkbox1"].checked);
-    termsValid ? hideErrorMessage('error-checkbox1') : displayErrorMessage('error-checkbox1', "Veuillez acceptez les conditions gÈnÈrales.");
+    termsValid ? hideErrorMessage('error-checkbox1') : displayErrorMessage('error-checkbox1', "Veuillez acceptez les conditions g√©n√©rales.");
 
     // si tous les champs sont valides alors on renvoie vrai et on ferme le formulaire.
     if (
@@ -92,7 +91,7 @@ function validate() {
         && locationValid
         && termsValid
     ) {
-        alert('Merci ! Votre rÈservation a ÈtÈ reÁue.');
+        alert('Merci ! Votre r√©servation a √©t√© re√ßue.');
         closeModal();
     }
 }
